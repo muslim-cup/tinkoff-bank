@@ -22,7 +22,7 @@ export default {
         console.log(payload)
         const token = store.getters['auth/token']
         const { data } = await axios.post(`/request.json?auth=${token}`, payload)
-        commit('setRequest', {...payload, id: data.name})
+        commit('addRequest', {...payload, id: data.name})
         dispatch('setMessage',{
           value: 'Заявка успешно создана',
           type: 'primary'
